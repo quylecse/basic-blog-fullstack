@@ -10,7 +10,19 @@
     "prettier"
   ],
   "settings": { "react": { "version": "detect" } },
-  "overrides": [{ "files": [".js", ".jsx"] }]
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"]
+      // Cấu hình Frontend
+    },
+    {
+      "files": ["*.config.js", "*.cjs"], // Áp dụng cho các tệp cấu hình
+      "env": {
+        "node": true // <--- Quan trọng: Kích hoạt biến toàn cục Node.js (module, require)
+      },
+      "parserOptions": {
+        "sourceType": "script" // Tắt chế độ Module ES cho các tệp CommonJS
+      }
+    }
+  ]
 }
-
-//npm run lint -- --fix
