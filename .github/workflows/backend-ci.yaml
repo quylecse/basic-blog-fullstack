@@ -21,7 +21,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: 'npm' # Use npm cache
+          cache-dependency-path: backend/package-lock.json # Specify path to backend's lock file
       - name: Install dependencies
         run: npm install
       - name: Run linter on backend
