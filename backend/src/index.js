@@ -6,9 +6,11 @@ dotenv.config()
 
 try {
   await initDatabase()
-  const PORT = process.env.PORT
-  app.listen(PORT)
-  console.log(`Express server running on http://localhost:${PORT}`)
+  // Use the PORT from the environment, or default to 3001 for local development
+  const PORT = process.env.PORT || 3001
+  app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`)
+  })
 } catch (error) {
   console.error('error connecting to database: ', error)
 }
